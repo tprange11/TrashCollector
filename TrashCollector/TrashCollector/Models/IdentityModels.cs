@@ -29,5 +29,12 @@ namespace TrashCollector.Models
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<ServiceAddress> ServiceAddresses { get; set; }
+        public DbSet<ServiceDay> ServiceDays { get; set; }
+        public DbSet<SpecialServiceDay> SpecialServiceDays { get; set; }
+        public DbSet<State> States { get; set; }
+
     }
 }
