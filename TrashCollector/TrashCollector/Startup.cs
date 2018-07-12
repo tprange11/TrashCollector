@@ -2,6 +2,7 @@
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(TrashCollector.Startup))]
+
 namespace TrashCollector
 {
     public partial class Startup

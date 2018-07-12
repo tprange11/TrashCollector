@@ -1,0 +1,38 @@
+﻿@model IEnumerable<TrashCollector.Models.SpecialServiceDay>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceAddress.Address1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceAddress.Address1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SpecialServiceDayID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SpecialServiceDayID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SpecialServiceDayID })
+        </td>
+    </tr>
+}
+</table>

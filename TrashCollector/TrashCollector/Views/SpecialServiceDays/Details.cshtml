@@ -1,0 +1,33 @@
+﻿@model TrashCollector.Models.SpecialServiceDay
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SpecialServiceDay</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceAddress.Address1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceAddress.Address1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SpecialServiceDayID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

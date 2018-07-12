@@ -1,8 +1,8 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace TrashCollector.Models
 {
@@ -29,12 +29,12 @@ namespace TrashCollector.Models
         {
             return new ApplicationDbContext();
         }
+
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<ServiceAddress> ServiceAddresses { get; set; }
         public DbSet<ServiceDay> ServiceDays { get; set; }
         public DbSet<SpecialServiceDay> SpecialServiceDays { get; set; }
         public DbSet<State> States { get; set; }
-
     }
 }

@@ -196,10 +196,26 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ServiceAddressesController.cs" />
+    <Compile Include="Controllers\ServiceDaysController.cs" />
+    <Compile Include="Controllers\SpecialServiceDaysController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807120431379_Init.cs" />
+    <Compile Include="Migrations\201807120431379_Init.Designer.cs">
+      <DependentUpon>201807120431379_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807120442548_Init2.cs" />
+    <Compile Include="Migrations\201807120442548_Init2.Designer.cs">
+      <DependentUpon>201807120442548_Init2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807120446488_Init21.cs" />
+    <Compile Include="Migrations\201807120446488_Init21.Designer.cs">
+      <DependentUpon>201807120446488_Init21.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -213,6 +229,11 @@
     <Compile Include="Models\SpecialServiceDay.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -224,6 +245,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\5a15f6ea1139d.image.jpg" />
+    <Content Include="images\71QHHTa-hrL._SX355_.jpg" />
+    <Content Include="images\ATbbjLKyc_t750x550.jpg" />
+    <Content Include="images\download %281%29.jpg" />
+    <Content Include="images\download %282%29.jpg" />
+    <Content Include="images\download.jpg" />
+    <Content Include="images\images %281%29.jpg" />
+    <Content Include="images\images %282%29.jpg" />
+    <Content Include="images\images %283%29.jpg" />
+    <Content Include="images\images.jpg" />
+    <Content Include="images\images.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -274,6 +306,26 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\SpecialServiceDays\Create.cshtml" />
+    <Content Include="Views\SpecialServiceDays\Delete.cshtml" />
+    <Content Include="Views\SpecialServiceDays\Details.cshtml" />
+    <Content Include="Views\SpecialServiceDays\Edit.cshtml" />
+    <Content Include="Views\SpecialServiceDays\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\ServiceAddresses\Create.cshtml" />
+    <Content Include="Views\ServiceAddresses\Delete.cshtml" />
+    <Content Include="Views\ServiceAddresses\Details.cshtml" />
+    <Content Include="Views\ServiceAddresses\Edit.cshtml" />
+    <Content Include="Views\ServiceAddresses\Index.cshtml" />
+    <Content Include="Views\ServiceDays\Create.cshtml" />
+    <Content Include="Views\ServiceDays\Delete.cshtml" />
+    <Content Include="Views\ServiceDays\Details.cshtml" />
+    <Content Include="Views\ServiceDays\Edit.cshtml" />
+    <Content Include="Views\ServiceDays\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -291,9 +343,27 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201807120431379_Init.resx">
+      <DependentUpon>201807120431379_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807120442548_Init2.resx">
+      <DependentUpon>201807120442548_Init2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807120446488_Init21.resx">
+      <DependentUpon>201807120446488_Init21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
