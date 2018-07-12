@@ -29,6 +29,7 @@ namespace TrashCollector.Models
         public virtual ICollection ServiceDay { get; set; }
 
         public virtual ICollection SpecialServiceDays { get; set; }
+        [Display(Name ="First Name")]
         public int CustomerID { get; set; }
         [ForeignKey("CustomerID")]
         public virtual Customer Customer { get; set; }

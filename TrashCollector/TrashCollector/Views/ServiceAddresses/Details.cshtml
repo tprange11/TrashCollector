@@ -3,11 +3,17 @@
 @{
     ViewBag.Title = "Details";
 }
+<style>
+    /* Set the size of the div element that contains the map */
+    #map {
+        height: 400px; /* The height is 400 pixels */
+        width: 100%; /* The width is the width of the web page */
+    }
+</style>
 
-<h2>Details</h2>
 
 <div>
-    <h4>ServiceAddress</h4>
+    <h3>Service Address Details</h3>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -17,15 +23,6 @@
         <dd>
             @Html.DisplayFor(model => model.Customer.FirstName)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.State.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.State.Name)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Address1)
         </dt>
@@ -51,16 +48,61 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.State.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State.Name)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.ZipCode)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.ZipCode)
         </dd>
-
     </dl>
+    <div id="floating-panel">
+        <input class="invisible" id="address" type="textbox" value="@Html.DisplayFor(model => model.Address1), @Html.DisplayFor(model => model.City), @Html.DisplayFor(model => model.State.Name) @Html.DisplayFor(model => model.ZipCode) ">
+        <input id="submit" type="button" value="Show Map">
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ServiceAddressID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+    <div id="map" style="visibility:hidden"></div>
+    <script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: {lat: -34.397, lng: 150.644}
+        });
+
+        var geocoder = new google.maps.Geocoder();
+
+          document.getElementById('submit').addEventListener('click', function() {
+              geocodeAddress(geocoder, map);
+              document.getElementById('map').style.visibility = "visible";
+        });
+      }
+
+      function geocodeAddress(geocoder, resultsMap) {
+        var address = document.getElementById('address').value;
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwnD7RaTJIgKS0Dtky8hKLkfeRry0P1F0&callback=initMap">
+    </script>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ServiceAddressID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
